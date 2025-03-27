@@ -1,0 +1,19 @@
+### 서버 호출
+GET http://localhost:3000
+
+### send 테스트
+POST http://localhost:3000/test
+Content-Type: application/json
+
+{
+    "message": "데이터 보낸다"
+}
+
+### 테스트
+POST http://localhost:3000/hello
+Content-Type: application/json
+
+{
+    "message": "안녕",
+    "name": "나다"
+}
