@@ -1,0 +1,12 @@
+### 서버 호출
+GET http://localhost:3000
+
+### location Test
+POST http://localhost:3000/api/location
+Content-Type: application/json
+
+{
+    "ssid": "Wifi",
+    "mac": "testMac",
+    "rssi": -1
+}
