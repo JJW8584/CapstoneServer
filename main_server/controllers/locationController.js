@@ -3,7 +3,7 @@ const pythonService = require('../services/pythonService');
 exports.handleLocation = async (req, res) => {
     try {
         const wifiData = req.body; // 클라이언트에서 보낸 WiFi 정보
-        console.log('받았다', wifiData);
+        console.log('WiFi 정보 받음', wifiData);
         //const locationInfo = await pythonService.sendToPythonServer(wifiData);
 
         //res.json(locationInfo);

@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const locationRouter = require('./routes/location');
+const authRouter = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // 라우터 연결
 app.use('/api/location', locationRouter);
+app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
     console.log('시작 테스트');
