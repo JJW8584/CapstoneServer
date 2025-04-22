@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const locationRouter = require('./routes/location');
 const authRouter = require('./routes/auth');
+const { startDisasterPolling } = require('./utils/scheduler');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +25,10 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: '서버 에러 발생' });
 });
 
-app.listen(PORT, () => {
+// 서버 시작과 동시에 재난 API 주기 호출 시작
+startDisasterPolling();
+
+// 서버 실행
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Main server running on port ${PORT}`);
 });
