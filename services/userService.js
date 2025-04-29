@@ -1,19 +1,32 @@
-const db = require('../utils/db');
-const bcrypt = require('bcrypt');
+const axios = require('axios');
 
-// 사용자 조회
-exports.findUser = async (username) => {
-  const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
-  return rows[0]; // 사용자 정보가 없으면 undefined 반환
+// 사용자 로그인 요청
+exports.loginToDatabaseServer = async (userId, password) => {
+  try {
+    const response = await axios.post('디비 로그인', {
+      userId,
+      password
+    });
+    return response.data;
+  } catch (error) {
+    console.error('디비 서버 로그인 요청 실패:', error);
+    throw error;
+  }
 };
 
-// 비밀번호 비교
-exports.comparePassword = async (plainPassword, hashedPassword) => {
-  return bcrypt.compare(plainPassword, hashedPassword);
-};
-
-// 비밀번호 해시 생성 (회원가입 시 사용 가능)
-exports.hashPassword = async (plainPassword) => {
-  const saltRounds = 10;
-  return bcrypt.hash(plainPassword, saltRounds);
+// 🔥 사용자 회원가입 요청
+exports.registerToDatabaseServer = async (userId, password, name, birth) => {
+  try {
+    const response = await axios.post('디비 회원가입', {
+      userId,
+      password,
+      name,
+      birth
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('디비 서버 회원가입 요청 실패:', error);
+    throw error;
+  }
 };

@@ -1,16 +1,76 @@
-//const userService = require('../services/userService');
+const userService = require('../services/userService');
 
 exports.login = async (req, res) => {
     const { userId, password } = req.body;
     console.log('로그인 API 진입');
     console.log('로그인 정보 받음', req.body);
 
-    //TODO: db로그인 요청, 성공/실패 여부 판정
-
-    // 테스트 응답 구조
-    res.status(200).json({
+    return res.status(200).json({
         success: true,
         message: '로그인 성공',
         token: 'test-token'
     });
+
+    try {
+        // 1. 디비 서버에 로그인 요청 보내기
+        const result = await userService.loginToDatabaseServer(userId, password);
+
+        // 2. 디비 서버가 success=true로 응답했는지 확인
+        if (result.success) {
+            console.log('로그인 성공');
+            return res.status(200).json({
+                success: true,
+                message: '로그인 성공',
+                token: 'test-token'
+            });
+        } else {
+            console.log('로그인 실패');
+            return res.status(401).json({
+                success: false,
+                message: '로그인 실패'
+            });
+        }
+    } catch (error) {
+        console.error('로그인 중 서버 에러:', error);
+        return res.status(500).json({
+            success: false,
+            message: '서버 오류가 발생했습니다.'
+        });
+    }
 };
+
+exports.register = async (req, res) => {
+    const { userId, password } = req.body;
+    console.log('회원가입 API 진입');
+    console.log('회원가입 정보 받음', req.body);
+  
+    return res.status(201).json({
+        success: true,
+        message: '회원가입 성공'
+    });
+
+    try {
+      // 디비 서버에 회원가입 요청
+      const result = await userService.registerToDatabaseServer(userId, password, name, birth);
+  
+      if (result.success) {
+        console.log('회원가입 성공');
+        return res.status(201).json({
+          success: true,
+          message: '회원가입 성공'
+        });
+      } else {
+        console.log('회원가입 실패');
+        return res.status(400).json({
+          success: false,
+          message: result.message || '회원가입 실패'
+        });
+      }
+    } catch (error) {
+      console.error('회원가입 중 서버 에러:', error);
+      return res.status(500).json({
+        success: false,
+        message: '서버 오류가 발생했습니다.'
+      });
+    }
+  };
