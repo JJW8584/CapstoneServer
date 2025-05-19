@@ -4,6 +4,8 @@ const db = require('../utils/db');
 exports.getEscapePath = async (req, res) => {
   try {
     const { building_id, wifi_list } = req.body;
+    
+    return res.status(400).json({ success: false, message: '필수 파라미터 누락' });
 
     if (!building_id || !wifi_list) {
       return res.status(400).json({ success: false, message: '필수 파라미터 누락' });
