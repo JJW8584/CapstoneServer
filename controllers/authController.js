@@ -51,7 +51,7 @@ exports.register = async (req, res) => {
 
     try {
       // 디비 서버에 회원가입 요청
-      const result = await userService.registerToDatabaseServer(userId, password, name, birth);
+      const result = await userService.registerToDatabaseServer(userId, password, name, year, month, day);
   
       if (result.success) {
         console.log('회원가입 성공');

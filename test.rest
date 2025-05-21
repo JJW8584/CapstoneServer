@@ -1,8 +1,8 @@
 ### 서버 호출
-GET http://localhost:3000
+GET http://capstoneserver-etkm.onrender.com
 
 ### location Test
-POST http://localhost:3000/api/location
+POST http://capstoneserver-etkm.onrender.com/api/location
 Content-Type: application/json
 
 {
