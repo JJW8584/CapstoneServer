@@ -1,5 +1,5 @@
 const axios = require('axios');
-const db = require('../utils/db');
+//const db = require('../utils/db');
 
 exports.getEscapePath = async (req, res) => {
   try {
