@@ -50,6 +50,7 @@ exports.register = async (req, res) => {
     //     message: '회원가입 성공'
     // });
 
+    console.log(userId);
     try {
       // 디비 서버에 회원가입 요청
       const email = userId

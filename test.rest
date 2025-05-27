@@ -1,5 +1,5 @@
 ### 서버 호출
-GET http://capstoneserver-etkm.onrender.com
+GET http://localhost:3000
 
 ### location Test
 POST http://capstoneserver-etkm.onrender.com/api/location
@@ -12,20 +12,20 @@ Content-Type: application/json
 }
 
 ### login Test
-POST https://capstoneserver-etkm.onrender.com/api/auth/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "userId": "testId",
-    "password": "testPw"
+    "userId": "test@example.com",
+    "password": "password123"
 }
 
 ### register Test
-POST https://capstoneserver-etkm.onrender.com/api/auth/register
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "email": "test11@example.com",
+    "userId": "test11@example.com",
     "password": "qwerty123",
     "name": "테스트",
     "year": "2000",
