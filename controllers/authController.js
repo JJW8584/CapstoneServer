@@ -16,7 +16,7 @@ exports.login = async (req, res) => {
         const result = await userService.loginToDatabaseServer(userId, password);
 
         // 2. 디비 서버가 success=true로 응답했는지 확인
-        if (result.statusCode == 200) {
+        if (result) {
             console.log('로그인 성공');
             return res.status(200).json({
                 success: true,
@@ -53,7 +53,7 @@ exports.register = async (req, res) => {
       // 디비 서버에 회원가입 요청
       const result = await userService.registerToDatabaseServer(userId, password, name, year, month, day);
   
-      if (result.success) {
+      if (result) {
         console.log('회원가입 성공');
         return res.status(201).json({
           success: true,
