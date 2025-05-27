@@ -5,18 +5,18 @@ exports.login = async (req, res) => {
     console.log('로그인 API 진입');
     console.log('로그인 정보 받음', req.body);
 
-    return res.status(200).json({
-        success: true,
-        message: '로그인 성공',
-        token: 'test-token'
-    });
+    // return res.status(200).json({
+    //     success: true,
+    //     message: '로그인 성공',
+    //     token: 'test-token'
+    // });
 
     try {
         // 1. 디비 서버에 로그인 요청 보내기
         const result = await userService.loginToDatabaseServer(userId, password);
 
         // 2. 디비 서버가 success=true로 응답했는지 확인
-        if (result.success) {
+        if (result.statusCode == 200) {
             console.log('로그인 성공');
             return res.status(200).json({
                 success: true,
@@ -40,14 +40,14 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-    const { userId, password } = req.body;
+    const { userId, password, name, year, month, day } = req.body;
     console.log('회원가입 API 진입');
     console.log('회원가입 정보 받음', req.body);
   
-    return res.status(201).json({
-        success: true,
-        message: '회원가입 성공'
-    });
+    // return res.status(201).json({
+    //     success: true,
+    //     message: '회원가입 성공'
+    // });
 
     try {
       // 디비 서버에 회원가입 요청

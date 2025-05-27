@@ -19,3 +19,16 @@ Content-Type: application/json
     "userId": "testId",
     "password": "testPw"
 }
+
+### register Test
+POST https://capstoneserver-etkm.onrender.com/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "test11@example.com",
+    "password": "qwerty123",
+    "name": "테스트",
+    "year": "2000",
+    "month": "3",
+    "day": "12"
+}
