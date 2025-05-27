@@ -13,15 +13,16 @@ exports.login = async (req, res) => {
 
     try {
         // 1. 디비 서버에 로그인 요청 보내기
-        const result = await userService.loginToDatabaseServer(userId, password);
+        const email = userId;
+        const result = await userService.loginToDatabaseServer(email, password);
 
-        // 2. 디비 서버가 success=true로 응답했는지 확인
-        if (result) {
+        // 2. 디비 서버가 응답했는지 확인
+        if (result.customToken) {
             console.log('로그인 성공');
             return res.status(200).json({
                 success: true,
                 message: '로그인 성공',
-                token: 'test-token'
+                token: result.token
             });
         } else {
             console.log('로그인 실패');
@@ -51,7 +52,8 @@ exports.register = async (req, res) => {
 
     try {
       // 디비 서버에 회원가입 요청
-      const result = await userService.registerToDatabaseServer(userId, password, name, year, month, day);
+      const email = userId
+      const result = await userService.registerToDatabaseServer(email, password, name, year, month, day);
   
       if (result) {
         console.log('회원가입 성공');
