@@ -22,7 +22,7 @@ exports.login = async (req, res) => {
             return res.status(200).json({
                 success: true,
                 message: '로그인 성공',
-                token: result.token
+                customToken: result.customToken
             });
         } else {
             console.log('로그인 실패');
