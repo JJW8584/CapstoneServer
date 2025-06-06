@@ -1,7 +1,7 @@
 const userService = require('../services/userService');
 
 exports.login = async (req, res) => {
-    const { userId, password } = req.body;
+    const { email, password } = req.body;
     console.log('로그인 API 진입');
     console.log('로그인 정보 받음', req.body);
 
@@ -13,7 +13,6 @@ exports.login = async (req, res) => {
 
     try {
         // 1. 디비 서버에 로그인 요청 보내기
-        const email = userId;
         const result = await userService.loginToDatabaseServer(email, password);
 
         // 2. 디비 서버가 응답했는지 확인
@@ -41,7 +40,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-    const { userId, password, name, year, month, day } = req.body;
+    const { email, password, name, year, month, day } = req.body;
     console.log('회원가입 API 진입');
     console.log('회원가입 정보 받음', req.body);
   
