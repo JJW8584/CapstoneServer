@@ -1,10 +1,10 @@
 const axios = require('axios');
 
 // 사용자 로그인 요청
-exports.loginToDatabaseServer = async (userId, password) => {
+exports.loginToDatabaseServer = async (email, password) => {
   try {
     const response = await axios.post('https://capston.shop/users/login', {
-      userId,
+      email,
       password
     });
     return response.data;

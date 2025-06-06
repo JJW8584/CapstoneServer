@@ -13,7 +13,8 @@ exports.login = async (req, res) => {
 
     try {
         // 1. 디비 서버에 로그인 요청 보내기
-        const result = await userService.loginToDatabaseServer(userId, password);
+        const email = userId;
+        const result = await userService.loginToDatabaseServer(email, password);
 
         // 2. 디비 서버가 응답했는지 확인
         if (result.customToken) {
@@ -52,7 +53,8 @@ exports.register = async (req, res) => {
     console.log(userId);
     try {
       // 디비 서버에 회원가입 요청
-      const result = await userService.registerToDatabaseServer(userId, password, name, year, month, day);
+      const email = userId;
+      const result = await userService.registerToDatabaseServer(email, password, name, year, month, day);
   
       if (result) {
         console.log('회원가입 성공');
