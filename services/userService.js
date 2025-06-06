@@ -1,10 +1,10 @@
 const axios = require('axios');
 
 // 사용자 로그인 요청
-exports.loginToDatabaseServer = async (email, password) => {
+exports.loginToDatabaseServer = async (userId, password) => {
   try {
     const response = await axios.post('https://capston.shop/users/login', {
-      email,
+      userId,
       password
     });
     return response.data;
@@ -15,10 +15,10 @@ exports.loginToDatabaseServer = async (email, password) => {
 };
 
 // 🔥 사용자 회원가입 요청
-exports.registerToDatabaseServer = async (email, password, name, year, month, day) => {
+exports.registerToDatabaseServer = async (userId, password, name, year, month, day) => {
   try {
     const response = await axios.post('https://capston.shop/users/register', {
-      email,
+      userId,
       password,
       name,
       year,
