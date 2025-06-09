@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "userId": "test@example.com",
-    "password": "password123"
+    "password": "qwerty123"
 }
 
 ### register Test
