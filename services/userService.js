@@ -32,3 +32,15 @@ exports.registerToDatabaseServer = async (userId, password, name, year, month, d
     throw error;
   }
 };
+
+// 사용자 조회
+exports.getUserProfile = async (uId) => {
+  try {
+    const response = await axios.get(`https://capston.shop/users/${uId}`);
+
+    return response.data;
+  } catch(error) {
+    console.error('사용자 조회 중 에러:', error);
+    throw error;
+  }
+}
