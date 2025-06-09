@@ -40,7 +40,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-    const { email, password, name, year, month, day } = req.body;
+    const { userId, password, name, year, month, day, phone } = req.body;
     console.log('회원가입 API 진입');
     console.log('회원가입 정보 받음', req.body);
   
@@ -53,7 +53,7 @@ exports.register = async (req, res) => {
     try {
       // 디비 서버에 회원가입 요청
       const email = userId;
-      const result = await userService.registerToDatabaseServer(email, password, name, year, month, day);
+      const result = await userService.registerToDatabaseServer(email, password, name, year, month, day, phone);
   
       if (result) {
         console.log('회원가입 성공');

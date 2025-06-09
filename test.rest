@@ -25,10 +25,11 @@ POST http://capstoneserver-etkm.onrender.com/api/auth/register
 Content-Type: application/json
 
 {
-    "userId": "test11@example.com",
+    "userId": "test@example.com",
     "password": "qwerty123",
     "name": "테스트",
     "year": "2000",
-    "month": "3",
-    "day": "12"
+    "month": "03",
+    "day": "12",
+    "phone": "010-1234-5678"
 }

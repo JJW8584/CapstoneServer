@@ -15,15 +15,19 @@ exports.loginToDatabaseServer = async (email, password) => {
 };
 
 // 🔥 사용자 회원가입 요청
-exports.registerToDatabaseServer = async (userId, password, name, year, month, day) => {
+exports.registerToDatabaseServer = async (userId, password, name, year, month, day, phone) => {
+  const birthYear = year;
+  const birthMonth = month;
+  const birthDay = day;
   try {
     const response = await axios.post('https://capston.shop/users/register', {
       userId,
-      password,
       name,
-      year,
-      month,
-      day
+      birthYear,
+      birthMonth,
+      birthDay,
+      phone,
+      password
     });
     
     return response.data;
