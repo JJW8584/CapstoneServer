@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { join } = require('../controllers/groupController');
 
 exports.getDangerMembers = async (uId) => {
     try {
@@ -25,7 +26,8 @@ exports.getJoinedGroups = async (uId) => {
 
 exports.getUserGroups = async (uId) => {
     try {
-        const response = await axios.post('https://capston.shop/groups/my', { uId });
+        const response = await axios.post('https://capston.shop/groups/my', { 
+            uid: uId });
 
         // TODO: backgroundImage 있어야됨, 수정 요망
         return response.data;
@@ -44,5 +46,18 @@ exports.getGroupMembers = async (groupId) => {
     } catch(error) {
         console.error('그룹 멤버 조회 중 에러:', error);
         throw error;
+    }
+}
+
+exports.JoinGroup = async (joinCode, uId) => {
+    const code = joinCode;
+    const uid = uId;
+    try {
+        const response = await axios.post('https://capston.shop/groups/group-members/join', { 
+            code, 
+            uid
+        });
+    } catch(error) {
+        console.error('그룹 참여 중 에러');
     }
 }

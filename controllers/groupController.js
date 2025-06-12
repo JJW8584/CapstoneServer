@@ -139,7 +139,37 @@ exports.members = async (req, res) => {
         {
             console.log('그룹 멤버 호출 성공');
             
-            // TODO: name, isLeader, status, location, relation, profileImage 있어야됨
+            // TODO: name, isLeader, status, location, relation 있어야됨
+            return res.status(200).json({
+                members: result
+            });        
+        }
+        else
+        {
+            console.log('그룹 멤버 호출 실패');
+        }
+    }
+    catch(error)
+    {
+        console.error('그룹 멤버 호출 중 서버 에러:', error);
+        return res.status(500).json({
+            success: false,
+            message: '서버 오류가 발생했습니다.'
+        });
+    }
+}
+
+exports.join = async (req, res) => {
+    const joinCode = req.body.joinCode;
+    const uId = req.body.uId
+
+    try{
+        const result = await groupService.JoinGroup(joinCode, uId);
+
+        if(result)
+        {
+            console.log('그룹 멤버 호출 성공');
+            
             return res.status(200).json({
                 members: result
             });        
