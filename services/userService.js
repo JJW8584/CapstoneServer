@@ -20,15 +20,17 @@ exports.registerToDatabaseServer = async (userId, password, name, year, month, d
   const birthMonth = month;
   const birthDay = day;
   const email = userId;
+  const confirmPassword = password
   try {
     const response = await axios.post('https://capston.shop/users/register', {
       email,
+      passowrd,
+      confirmPassword,
       name,
       birthYear,
       birthMonth,
       birthDay,
       phone,
-      password
     });
     
     return response.data;
