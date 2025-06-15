@@ -1,5 +1,5 @@
 ### 서버 호출
-GET http:///capstoneserver-etkm.onrender.com
+GET http://capstoneserver-etkm.onrender.com
 
 ### location Test
 POST http://capstoneserver-etkm.onrender.com/api/location
@@ -25,7 +25,7 @@ POST http://capstoneserver-etkm.onrender.com/api/auth/register
 Content-Type: application/json
 
 {
-    "userId": "test@example.com",
+    "userId": "jjw@example.com",
     "password": "qwerty123",
     "name": "테스트",
     "year": "2000",

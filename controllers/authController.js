@@ -16,7 +16,7 @@ exports.login = async (req, res) => {
         const result = await userService.loginToDatabaseServer(email, password);
 
         // 2. 디비 서버가 응답했는지 확인
-        if (result.customToken) {
+        if (result) {
             console.log('로그인 성공');
             return res.status(200).json({
                 success: true,
