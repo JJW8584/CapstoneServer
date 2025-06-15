@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
             return res.status(200).json({
                 success: true,
                 message: '로그인 성공',
-                customToken: result.customToken
+                uid: result.uid
             });
         } else {
             console.log('로그인 실패');
