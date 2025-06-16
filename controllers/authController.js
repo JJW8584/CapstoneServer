@@ -24,18 +24,31 @@ exports.login = async (req, res) => {
                 uid: result.uid
             });
         } else {
-            console.log('로그인 실패');
-            return res.status(401).json({
-                success: false,
-                message: result.message
-            });
+            
         }
     } catch (error) {
         console.error('로그인 중 서버 에러:');
-        return res.status(500).json({
-            success: false,
-            message: '서버 오류가 발생했습니다.'
-        });
+        const message = error.response?.data?.message;
+            if (message === '이메일이 존재하지 않습니다.') {
+              console.log('이메일을 다시 확인해주세요.');
+              return res.status(401).json({
+                  success: false,
+                  message: '이메일이 존재하지 않습니다.'
+              });
+            } else if (message === '비밀번호가 올바르지 않습니다.') {
+              console.log('비밀번호가 틀렸습니다.');   
+              return res.status(401).json({
+                  success: false,
+                  message: '비밀번호가 올바르지 않습니다.'
+              });
+            } else {
+              console.log('알 수 없는 오류가 발생했습니다.');
+              
+              return res.status(500).json({
+                  success: false,
+                  message: '서버 오류가 발생했습니다.'
+              });
+            }
     }
 };
 
