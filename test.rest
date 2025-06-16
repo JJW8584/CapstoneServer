@@ -37,7 +37,7 @@ POST http://capstoneserver-etkm.onrender.com/api/group/createGroup
 Content-Type: application/json
 
 {
-    "groupName": "테스트 그룹",
+    "groupName": "테스트 그룹1",
     "uId": "cd3eeb19-ce25-4705-8351-0c1975abdeb6"
 }
 
