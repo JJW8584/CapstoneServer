@@ -46,8 +46,8 @@ POST http://capstoneserver-etkm.onrender.com/api/group/joinGroup
 Content-Type: application/json
 
 {
-    "groupCode": "",
-    "uId": ""
+    "groupCode": "3B0108",
+    "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409"
 }
 
 ### 그룹 나가기
@@ -55,6 +55,6 @@ POST http://capstoneserver-etkm.onrender.com/api/group/exitGroup
 Content-Type: application/json
 
 {
-    "groupCode": "",
-    "uId": ""
+    "groupCode": "3B0108",
+    "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409"
 }

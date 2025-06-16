@@ -42,32 +42,15 @@ exports.profile = async (req, res) => {
 exports.createGroup = async (req, res) => {
     try{
         const { groupName, uId } = req.body;
-        const Check = await groupService.CreateGroup(groupName, uId);
+        const result = await groupService.CreateGroup(groupName, uId);
 
-        if(Check)
+        if(result)
         {
             console.log('그룹 생성 성공');
-
-            const result = await groupService.getUserGroups(uId);
-
-            if(result)
-            {
-                console.log('그룹 생성 후 호출 성공');
-                
-                return res.status(200).json({
-                    success: true,
-                    message: '그룹 정보를 불러왔습니다.',
-                    data: result
-                });
-            }
-            else
-            {
-                console.log('그룹 생성 후 호출 실패');
-                return res.status(404).json({
-                success: false,
-                message: '그룹 정보를 찾을 수 없습니다.'
-                });
-            }
+            return res.status(200).json({
+                success: true,
+                message: '그룹 생성에 성공했습니다.'
+            });           
         }
         else
         {
@@ -80,7 +63,7 @@ exports.createGroup = async (req, res) => {
     }
     catch(error)
     {
-        console.error('그룹 상세 호출 중 서버 에러:', error);
+        console.error('그룹 생성 중 서버 에러:', error);
         return res.status(500).json({
             success: false,
             message: '서버 오류가 발생했습니다.'
