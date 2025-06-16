@@ -82,3 +82,19 @@ exports.ExitGroup = async (groupCode, uId) => {
         throw error;
     }
 }
+
+exports.GetShelters = async () => {
+    try {
+        const response = await axios.get('https://capston.shop/shelters');
+
+        if (response.status === 200) {
+            return response.data;
+        }
+        else {
+            return null;
+        }
+    } catch(error) {
+        console.error('대피소 호출 중 에러');
+        throw error;
+    }
+}

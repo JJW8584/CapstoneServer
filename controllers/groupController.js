@@ -172,3 +172,36 @@ exports.exitGroup = async (req, res) => {
         });
     }
 }
+
+exports.shelters = async (req, res) => {
+    try{
+        const result = await groupService.GetShelters(groupCode, uId);
+
+        if(result)
+        {
+            console.log('대피소 호출 성공');
+            
+            return res.status(200).json({
+                success: true,
+                message: '대피소 호출 성공',
+                data: result
+            });
+        }
+        else
+        {
+            console.log('대피소 호출 실패');
+            return res.status(404).json({
+                success: false,
+                message: '대피소 정보를 찾을 수 없습니다.'
+            });
+        }
+    }
+    catch(error)
+    {
+        console.error('대비소 호출 중 서버 에러:', error);
+        return res.status(500).json({
+            success: false,
+            message: '서버 오류가 발생했습니다.'
+        });
+    }
+}

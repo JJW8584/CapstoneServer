@@ -17,4 +17,7 @@ router.post('/joinGroup', groupController.joinGroup);
 // 그룹 나가기 요청 api/group/exitGroup
 router.post('/exitGroup', groupController.exitGroup);
 
+// 대피소 호출 api/group/shelters
+router.get('/shelters', groupController.shelters);
+
 module.exports = router;
