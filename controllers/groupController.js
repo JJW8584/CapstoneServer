@@ -147,7 +147,7 @@ exports.exitGroup = async (req, res) => {
 
         if(exitCheck)
         {
-            console.log('그룹 나가기 성공');
+            console.log('그룹 나가기 성공', groupCode, uId);
             
             return res.status(200).json({
                 success: true,
