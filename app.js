@@ -10,7 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 // 라우터 연결
-app.use('/api/location', locationRouter);
 app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
