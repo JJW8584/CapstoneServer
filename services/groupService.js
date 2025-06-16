@@ -13,3 +13,67 @@ exports.getUserGroups = async (uId) => {
         throw error;
     }
 }
+
+exports.CreateGroup = async (groupName, uId) => {
+    const name = groupName;
+    const uid = uId;
+
+    try {
+        const response = await axios.post('https://capston.shop/groups', { 
+            name, 
+            uid
+        });
+        
+        if (response.success) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    } catch(error) {
+        console.error('그룹 생성 중 에러');
+    }
+}
+
+exports.JoinGroup = async (groupCode, uId) => {
+    const inviteCode = groupCode;
+    const userId = uId;
+
+    try {
+        const response = await axios.post('https://capston.shop/groups/join', { 
+            inviteCode, 
+            userId
+        });
+
+        if (response.success) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    } catch(error) {
+        console.error('그룹 참여 중 에러');
+    }
+}
+
+exports.ExitGroup = async (groupCode, uId) => {
+    const inviteCode = groupCode;
+    const userId = uId;
+    try {
+        const response = await axios.post('https://capston.shop/groups/kick', { 
+            inviteCode, 
+            userId
+        });
+
+        if (response.success) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    } catch(error) {
+        console.error('그룹 나가기 중 에러');
+    }
+}
