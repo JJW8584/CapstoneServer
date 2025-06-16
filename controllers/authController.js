@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
 
         // 2. 디비 서버가 응답했는지 확인
         if (result) {
-            console.log('로그인 성공');
+            console.log('로그인 성공', result);
             return res.status(200).json({
                 success: true,
                 message: '로그인 성공',
@@ -27,11 +27,11 @@ exports.login = async (req, res) => {
             console.log('로그인 실패');
             return res.status(401).json({
                 success: false,
-                message: '로그인 실패'
+                message: result.message
             });
         }
     } catch (error) {
-        console.error('로그인 중 서버 에러:', error);
+        console.error('로그인 중 서버 에러:');
         return res.status(500).json({
             success: false,
             message: '서버 오류가 발생했습니다.'
