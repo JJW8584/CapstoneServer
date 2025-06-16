@@ -29,7 +29,7 @@ POST http://capstoneserver-etkm.onrender.com/api/group/groups
 Content-Type: application/json
 
 {
-    "globalUid": "67a6abd9-efa1-4a3c-9c6e-cc8d8ce31b9c"
+    "globalUid": "cd3eeb19-ce25-4705-8351-0c1975abdeb6"
 }
 
 ### 그룹 생성
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 {
     "groupName": "테스트 그룹",
-    "uId": "67a6abd9-efa1-4a3c-9c6e-cc8d8ce31b9c"
+    "uId": "cd3eeb19-ce25-4705-8351-0c1975abdeb6"
 }
 
 ### 그룹 참여
@@ -46,7 +46,7 @@ POST http://capstoneserver-etkm.onrender.com/api/group/joinGroup
 Content-Type: application/json
 
 {
-    "groupCode": "3B0108",
+    "groupCode": "A888BC",
     "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409"
 }
 
@@ -55,6 +55,6 @@ POST http://capstoneserver-etkm.onrender.com/api/group/exitGroup
 Content-Type: application/json
 
 {
-    "groupCode": "3B0108",
+    "groupCode": "A888BC",
     "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409"
 }
