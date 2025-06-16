@@ -43,10 +43,8 @@ exports.JoinGroup = async (groupCode, uId) => {
 
     try {
         const response = await axios.post('https://capston.shop/groups/join', { 
-            params: {
-                inviteCode, 
-                userId
-            }
+            inviteCode, 
+            userId
         });
 
         if (response.data.success) {
@@ -67,10 +65,8 @@ exports.ExitGroup = async (groupCode, uId) => {
     const userId = uId;
     try {
         const response = await axios.delete('https://capston.shop/groups/kick', { 
-            params: {
-                inviteCode, 
-                userId
-            }
+            inviteCode, 
+            userId
         });
 
         if (response.data.success) {
