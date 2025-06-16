@@ -205,3 +205,37 @@ exports.shelters = async (req, res) => {
         });
     }
 }
+
+// 유저 프로필 수정
+exports.editProfile = async (req, res) => {
+    try{
+        const { uId, name, year, month, day, phone } = req.body;
+        const result = await groupService.editUserProfile(uId, name, year, month, day, phone);
+
+        if(result.success)
+        {
+            console.log('프로필 수정 완료');
+            
+            return res.status(200).json({
+                success: true,
+                message: '프로필 수정 성공'
+            });
+        }
+        else
+        {
+            console.log('프로필 수정 실패');
+            return res.status(404).json({
+                success: false,
+                message: '프로필 수정 실패'
+            });
+        }
+    }
+    catch(error)
+    {
+        console.error('프로필 수정 중 서버 에러:', error);
+        return res.status(500).json({
+            success: false,
+            message: '서버 오류가 발생했습니다.'
+        });
+    }
+}

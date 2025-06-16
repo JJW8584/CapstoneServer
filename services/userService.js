@@ -51,3 +51,26 @@ exports.getUserProfile = async (uId) => {
     throw error;
   }
 }
+
+// 프로필 수정
+exports.editUserProfile = async (uId, name, year, month, day, phone) => {
+  const uid = uId;
+  const birthYear = year;
+  const birthMonth = month;
+  const birthDay = day;
+  try {
+    const response = await axios.post('https://capston.shop/users/profile', {
+      uid,
+      name,
+      birthYear,
+      birthMonth,
+      birthDay,
+      phone,
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('디비 서버 회원가입 요청 실패:', error);
+    throw error;
+  }
+}

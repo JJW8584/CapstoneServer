@@ -58,3 +58,19 @@ Content-Type: application/json
     "groupCode": "A888BC",
     "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409"
 }
+
+### 대피소 호출
+GET http://capstoneserver-etkm.onrender.com/api/group/shelters
+
+### 프로필 수정
+POST http://capstoneserver-etkm.onrender.com/api/group/editProfile
+Content-Type: application/json
+
+{
+    "uId": "126961ae-f92d-48e5-8f37-4b5a04e88409",
+    "name": "김철수",
+    "year": 2003,
+    "month": 9,
+    "day": 8,
+    "phone": 010-0987-7654
+}

@@ -20,4 +20,7 @@ router.post('/exitGroup', groupController.exitGroup);
 // 대피소 호출 api/group/shelters
 router.get('/shelters', groupController.shelters);
 
+// 프로필 수정 api/group/editProfile
+router.post('/editProfile', groupController.editProfile);
+
 module.exports = router;
