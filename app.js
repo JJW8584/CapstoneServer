@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const locationRouter = require('./routes/location');
 const authRouter = require('./routes/auth');
 const { startDisasterPolling } = require('./utils/scheduler');
 
