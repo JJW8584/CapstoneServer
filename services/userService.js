@@ -70,7 +70,7 @@ exports.editUserProfile = async (uId, name, year, month, day, phone) => {
     
     return response.data;
   } catch (error) {
-    console.error('디비 서버 회원가입 요청 실패:', error);
+    console.error('프로필 수정 요청 실패:', error);
     throw error;
   }
 }

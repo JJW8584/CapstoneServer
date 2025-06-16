@@ -210,7 +210,7 @@ exports.shelters = async (req, res) => {
 exports.editProfile = async (req, res) => {
     try{
         const { uId, name, year, month, day, phone } = req.body;
-        const result = await groupService.editUserProfile(uId, name, year, month, day, phone);
+        const result = await userService.editUserProfile(uId, name, year, month, day, phone);
 
         if(result.success)
         {
