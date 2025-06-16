@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authRouter = require('./routes/auth');
+const groupRouter = require('./routes/group');
 const { startDisasterPolling } = require('./utils/scheduler');
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 // 라우터 연결
 app.use('/api/auth', authRouter);
+app.use('/api/group', groupRouter);
 
 app.get('/', (req, res) => {
     console.log('시작 테스트');
