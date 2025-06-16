@@ -23,8 +23,8 @@ exports.CreateGroup = async (groupName, uId) => {
             name, 
             uid
         });
-        
-        if (response.success) {
+
+        if (response.data.success) {
             return true;
         }
         else {
@@ -33,6 +33,7 @@ exports.CreateGroup = async (groupName, uId) => {
 
     } catch(error) {
         console.error('그룹 생성 중 에러');
+        throw error;
     }
 }
 
@@ -46,7 +47,7 @@ exports.JoinGroup = async (groupCode, uId) => {
             userId
         });
 
-        if (response.success) {
+        if (response.data.success) {
             return true;
         }
         else {
@@ -55,6 +56,7 @@ exports.JoinGroup = async (groupCode, uId) => {
 
     } catch(error) {
         console.error('그룹 참여 중 에러');
+        throw error;
     }
 }
 
@@ -67,7 +69,7 @@ exports.ExitGroup = async (groupCode, uId) => {
             userId
         });
 
-        if (response.success) {
+        if (response.data.success) {
             return true;
         }
         else {
@@ -75,5 +77,6 @@ exports.ExitGroup = async (groupCode, uId) => {
         }
     } catch(error) {
         console.error('그룹 나가기 중 에러');
+        throw error;
     }
 }

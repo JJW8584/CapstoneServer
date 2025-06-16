@@ -41,7 +41,8 @@ exports.profile = async (req, res) => {
 
 exports.createGroup = async (req, res) => {
     try{
-        const Check = await groupService.getUserGroups(req.groupName, req.uId);
+        const { groupName, uId } = req.body;
+        const Check = await groupService.CreateGroup(groupName, uId);
 
         if(Check)
         {
@@ -53,7 +54,11 @@ exports.createGroup = async (req, res) => {
             {
                 console.log('그룹 생성 후 호출 성공');
                 
-                return res.status(200).json(result);
+                return res.status(200).json({
+                    success: true,
+                    message: '그룹 정보를 불러왔습니다.',
+                    data: result
+                });
             }
             else
             {
@@ -93,7 +98,11 @@ exports.groups = async (req, res) => {
         {
             console.log('그룹 상세 호출 성공');
             
-            return res.status(200).json(result);
+            return res.status(200).json({
+                success: true,
+                message: '그룹 정보를 불러왔습니다.',
+                data: result
+            });
         }
         else
         {
@@ -116,13 +125,17 @@ exports.groups = async (req, res) => {
 
 exports.joinGroup = async (req, res) => {
     try{
-        const result = await groupService.JoinGroup(req.groupCode, req.uId);
+        const { groupCode, uId } = req.body;
+        const result = await groupService.JoinGroup(groupCode, uId);
 
         if(result)
         {
             console.log('그룹 참여 성공');
             
-            return res.status(200).json(result);
+            return res.status(200).json({
+                success: true,
+                message: '그룹에 참여했습니다.'
+            });
         }
         else
         {
@@ -145,13 +158,15 @@ exports.joinGroup = async (req, res) => {
 
 exports.exitGroup = async (req, res) => {
     try{
-        const exitCheck = await groupService.ExitGroup(req.groupCode, req.uId);
+        const { groupCode, uId } = req.body;
+        const exitCheck = await groupService.ExitGroup(groupCode, uId);
 
         if(exitCheck)
         {
             console.log('그룹 나가기 성공');
             
             return res.status(200).json({
+                success: true,
                 message: '그룹 나가기 성공'
             });
         }
