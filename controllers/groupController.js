@@ -175,7 +175,7 @@ exports.exitGroup = async (req, res) => {
 
 exports.shelters = async (req, res) => {
     try{
-        const result = await groupService.GetShelters(groupCode, uId);
+        const result = await groupService.GetShelters();
 
         if(result)
         {
