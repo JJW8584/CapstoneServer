@@ -16,8 +16,8 @@ POST http://capstoneserver-etkm.onrender.com/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "test@example.com",
-    "password": "password123"
+    "email": "jjw@example.com",
+    "password": "qwerty123"
 }
 
 ### register Test
@@ -29,7 +29,42 @@ Content-Type: application/json
     "password": "qwerty123",
     "name": "테스트",
     "year": "2000",
-    "month": "03",
+    "month": "3",
     "day": "12",
-    "phone": "010-1234-5678"
+    "phone": "010-4223-8584"
+}
+
+### 그룹 조회
+POST http://capstoneserver-etkm.onrender.com/api/group/groups
+Content-Type: application/json
+
+{
+    "globalUid": "67a6abd9-efa1-4a3c-9c6e-cc8d8ce31b9c"
+}
+
+### 그룹 생성
+POST http://capstoneserver-etkm.onrender.com/api/group/createGroup
+Content-Type: application/json
+
+{
+    "groupName": "테스트 그룹",
+    "uId": "67a6abd9-efa1-4a3c-9c6e-cc8d8ce31b9c"
+}
+
+### 그룹 참여
+POST http://capstoneserver-etkm.onrender.com/api/group/joinGroup
+Content-Type: application/json
+
+{
+    "groupCode": "",
+    "uId": ""
+}
+
+### 그룹 나가기
+POST http://capstoneserver-etkm.onrender.com/api/group/exitGroup
+Content-Type: application/json
+
+{
+    "groupCode": "",
+    "uId": ""
 }
