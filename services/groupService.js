@@ -64,7 +64,7 @@ exports.ExitGroup = async (groupCode, uId) => {
     const inviteCode = groupCode;
     const userId = uId;
     try {
-        const response = await axios.post('https://capston.shop/groups/kick', { 
+        const response = await axios.delete('https://capston.shop/groups/kick', { 
             inviteCode, 
             userId
         });
