@@ -48,6 +48,7 @@ exports.createGroup = async (req, res) => {
         {
             console.log('그룹 생성 성공');
             return res.status(200).json({
+                inviteCode: result.inviteCode,
                 success: true,
                 message: '그룹 생성에 성공했습니다.'
             });           

@@ -25,7 +25,7 @@ exports.CreateGroup = async (groupName, uId) => {
         });
 
         if (response.data.success) {
-            return true;
+            return response.data;
         }
         else {
             return false;
